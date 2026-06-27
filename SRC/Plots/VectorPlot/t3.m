@@ -1,0 +1,24 @@
+load wind;
+xmin = min(x(:));
+xmax = max(x(:));
+ymin = min(y(:));
+ymax = max(y(:));
+zmin = min(z(:));
+zmax = max(z(:));
+wind_speed = sqrt(u.^2 + v.^2 + w.^2);
+colors = wind_speed;
+scale = 2;
+figure;
+[cx cy cz] = meshgrid(xmin:5:xmax,ymin:5:ymax,zmin:2:zmax);
+c = coneplot(x,y,z,u,v,w,cx,cy,cz,scale,colors);
+set(c,'EdgeColor','none');
+view([-35 60]);
+camproj perspective;
+camzoom(2.0);
+axis off;
+grid off;
+box off;
+light;
+lighting phong;
+camlight('left');
+colormap jet

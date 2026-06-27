@@ -1,0 +1,17 @@
+load wind;
+xmin = min(x(:));
+xmax = max(x(:));
+ymin = min(y(:));
+ymax = max(y(:));
+zmin = min(z(:));
+zmax = max(z(:));
+scale = 2;
+figure;
+[cx cy cz] = meshgrid(xmin:5:xmax,ymin:5:ymax,zmin:2:zmax);
+coneplot(x,y,z,u,v,w,cx,cy,cz,scale,'quiver');
+view([-35 60]);
+camproj perspective;
+camzoom(2.0);
+axis on;
+grid off;
+box on;
